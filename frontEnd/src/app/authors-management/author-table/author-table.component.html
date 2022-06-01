@@ -1,0 +1,45 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Author</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of authorsList; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ "✍️" }}</td>
+      <td>{{ author.name }}</td>
+      <td>{{ author.age }}</td>
+      <td scope="row" class="hellooo">
+        <p class="hello">{{ author.description }}</p>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary create-button first"
+          (click)="openEditForm(author)"
+        >
+          Edit
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-danger create-button"
+          (click)="removeAuthor(author._id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-edit-author
+  [currentAuthorId]="currentId"
+  [currentAuthorContent]="currentAuthorContent"
+  *ngIf="this.display"
+></app-edit-author>

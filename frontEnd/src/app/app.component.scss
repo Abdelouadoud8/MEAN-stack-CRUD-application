@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #3f51b5;
+    padding: 1.1rem 3rem;
+    font-weight: 600;
+  
+    & a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  }
+  
+  .nav {
+    &__right {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+  
+      & :first-child {
+        margin-right: 3rem;
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+.content {
+  padding: 4rem 24rem;
+}
+
+.item {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.input {
+  &_title {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,51 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Book</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Author</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of booksList; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ "📕" }}</td>
+      <td>{{ book.title }}</td>
+      <td scope="row" class="hellooo">
+        <p class="hello">{{ book.description }}</p>
+      </td>
+      <td>{{ book.releaseDate }}</td>
+      <td>
+        {{ book.author.name }}
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary create-button first"
+          (click)="openEditForm(book)"
+        >
+          <!-- (click)="openEditForm(book._id)" -->
+          Edit
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-danger create-button"
+          (click)="removeBook(book._id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-edit-book
+  [currentBookId]="currentId"
+  [currentBookContent]="currentBookContent"
+  *ngIf="this.display"
+>
+</app-edit-book>

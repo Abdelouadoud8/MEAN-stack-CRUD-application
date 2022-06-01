@@ -1,0 +1,69 @@
+<form class="content">
+  <h1>📕 Create new book</h1>
+  <div class="form-group item">
+    <label for="exampleInputEmail1">Book Title</label>
+    <input
+      type="text"
+      [formControl]="newBook.bookTitle"
+      class="form-control"
+      aria-describedby="emailHelp"
+      placeholder="Enter book title"
+    />
+    <label class="error" *ngIf="newBook.bookTitle?.errors"
+      >The title is required, please add a title</label
+    >
+  </div>
+  <div class="form-group item">
+    <label>Description</label>
+    <input
+      class="form-control"
+      [formControl]="newBook.bookDescription"
+      type="text"
+      class="form-control"
+      placeholder="Enter book description"
+    />
+    <label class="error" *ngIf="newBook.bookDescription?.errors"
+      >The description must contain at least 20 caracters</label
+    >
+  </div>
+  <div class="form-group item">
+    <label>Release date</label>
+    <input
+      type="date"
+      [formControl]="newBook.bookreleaseDate"
+      class="form-control"
+      placeholder="Enter release date"
+    />
+    <label class="error" *ngIf="newBook.bookreleaseDate?.errors"
+      >Release date is required, please add a valid release date</label
+    >
+  </div>
+  <div class="form-group item">
+    <label>Author</label>
+    <select [formControl]="newBook.authorId" class="form-control">
+      <option
+        [value]="authorName._id"
+        *ngFor="let authorName of authorsNamesIdList; index as i"
+      >
+        {{ authorName.name }}
+      </option>
+    </select>
+    <label class="error" *ngIf="newBook.authorId?.errors"
+      >Release date is required, please select an author</label
+    >
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="AddBook()"
+    [disabled]="
+      newBook.bookTitle?.errors ||
+      newBook.bookDescription?.errors ||
+      newBook.bookreleaseDate?.errors ||
+      newBook.authorId?.errors
+    "
+  >
+    Create book
+  </button>
+</form>

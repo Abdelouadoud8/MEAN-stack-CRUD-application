@@ -1,0 +1,21 @@
+<section>
+  <div class="card book" style="width: 40rem">
+    <img
+      class="card-img-top"
+      src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ bookDetails.title }}</h5>
+      <p class="card-text">
+        {{ bookDetails.description }}
+      </p>
+      <p class="card-text">
+        {{ "Released in: " + bookDetails.releaseDate }}
+      </p>
+      <p class="card-text">
+        {{ "Writted by in: " + bookDetails.author }}
+      </p>
+    </div>
+  </div>
+</section>
