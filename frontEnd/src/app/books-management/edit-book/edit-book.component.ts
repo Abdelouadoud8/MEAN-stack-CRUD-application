@@ -75,12 +75,13 @@ export class EditBookComponent implements OnInit {
   };
 
   updateBook(booktId: any) {
+    console.log(this.newBook.authorId.value);
     this.http
       .patch(`http://localhost:3000/books/${booktId}`, {
         title: this.newBook.bookTitle.value,
         description: this.newBook.bookDescription.value,
         releaseDate: this.newBook.bookreleaseDate.value,
-        // authorId: this.newBook.authorId,
+        authorId: this.newBook.authorId.value,
       })
       .subscribe((snaps: any) => {
         this.getBooks();

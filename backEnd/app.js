@@ -56,7 +56,18 @@ app.post("/books", (req, res) => {
 });
 
 app.get("/books", async (req, res) => {
-  const books = await book.find().populate("author");
+  // const books = await book.find().populate("author");
+  const books = await book.aggregate([
+    {
+      $lookup: {
+        from: author.collection.name,
+        localField: "author",
+        foreignField: "_id",
+        as: "author",
+      },
+    },
+  ]);
+
   res.send(books);
 });
 
@@ -114,7 +125,13 @@ app.listen(port, () => {
   console.log(`server is running in port ${port}`);
 });
 
-// const totalAuthors = author.aggregate([{ $count: "Author" }]);
-// app.get("/nbauthors", async (req, res) => {
-//   res.send(totalAuthors);
-// });
+// Statistics
+app.get("/statistics", async (req, res) => {
+  const totalAuthors = await author.aggregate([{ $count: "total" }]);
+  const totalBooks = await book.aggregate([{ $count: "total" }]);
+  statistics = {
+    authors: totalAuthors[0].total,
+    books: totalBooks[0].total,
+  };
+  res.json(statistics);
+});

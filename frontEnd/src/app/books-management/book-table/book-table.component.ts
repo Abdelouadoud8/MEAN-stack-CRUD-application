@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({

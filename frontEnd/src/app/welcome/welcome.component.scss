@@ -4,7 +4,7 @@
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 8rem;
+  margin-top: 6rem;
 
   & h1 {
     font-size: 6rem;
@@ -33,7 +33,6 @@ nav {
   padding: 1rem 2rem;
   border-radius: 0.3rem;
   margin-top: 1.4rem;
-
 }
 
 nav a {
@@ -43,4 +42,33 @@ nav a {
 nav a:hover {
   color: #3f51b5 !important;
   font-weight: 550;
+}
+
+.stats {
+  color: #3f51b5;
+  display: flex;
+  flex-direction: column;
+  background-color: #add8e6;
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+  align-items: center;
+  padding-top: 1rem;
+
+  &_body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-item {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 10rem;
+
+      & p {
+        font-size: 2rem;
+        color: #3f51b5;
+      }
+    }
+  }
 }
