@@ -1,5 +1,5 @@
 .content {
-  padding: 4rem 24rem;
+  text-align: right;
 }
 
 .item {
@@ -19,4 +19,8 @@ h1 {
   &_title {
     margin-bottom: 0.5rem;
   }
+}
+
+.contentheader {
+  text-align: left;
 }

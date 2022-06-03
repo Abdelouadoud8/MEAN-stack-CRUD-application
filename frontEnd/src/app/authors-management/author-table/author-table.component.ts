@@ -19,6 +19,8 @@ export class AuthorTableComponent {
   display = false;
   currentAuthorId = '';
   currentAuthorContent = {};
+  displayDetails = false;
+  selectedAuthorContent = {};
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -52,7 +54,21 @@ export class AuthorTableComponent {
   }
 
   onPress() {
-    this.display = !this.display;
+    this.display = true;
+  }
+
+  openAuthorkDetails(author: any) {
+    this.onPressBook();
+    this.currentId = author._id;
+    this.selectedAuthorContent = author;
+  }
+
+  onPressBook() {
+    this.displayDetails = true;
+  }
+
+  onPressCloseAuthor() {
+    this.display = false;
   }
 
   reloadCurrentPage = () => {

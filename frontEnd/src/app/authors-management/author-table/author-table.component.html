@@ -13,7 +13,19 @@
     <tr *ngFor="let author of authorsList; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ "✍️" }}</td>
-      <td>{{ author.name }}</td>
+      <td>
+        <p
+          (click)="openAuthorkDetails(author)"
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="bookTitle"
+        >
+          {{ author.name }}
+        </p>
+      </td>
+
       <td>{{ author.age }}</td>
       <td scope="row" class="hellooo">
         <p class="hello">{{ author.description }}</p>
@@ -23,6 +35,8 @@
           type="button"
           class="btn btn-primary create-button first"
           (click)="openEditForm(author)"
+          data-bs-toggle="modal"
+          data-bs-target="#editModal"
         >
           Edit
         </button>
@@ -38,8 +52,63 @@
     </tr>
   </tbody>
 </table>
-<app-edit-author
-  [currentAuthorId]="currentId"
-  [currentAuthorContent]="currentAuthorContent"
-  *ngIf="this.display"
-></app-edit-author>
+
+<!-- Edit form -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">✍️ Edit author</h5>
+        <button
+          (click)="onPressCloseAuthor()"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-author
+          [currentAuthorId]="currentId"
+          [currentAuthorContent]="currentAuthorContent"
+          *ngIf="this.display"
+        ></app-edit-author>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Book details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-author-details
+          [selectedAuthorContent]="selectedAuthorContent"
+          *ngIf="this.displayDetails"
+        ></app-author-details>
+      </div>
+    </div>
+  </div>
+</div>

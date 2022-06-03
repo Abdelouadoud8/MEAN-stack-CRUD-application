@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-book-details',
@@ -9,14 +9,5 @@ export class BookDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  bookDetails = book;
+  @Input() currentBookContent!: any;
 }
-
-const book = {
-  title: 'Design patterns',
-  flag: '📕',
-  description:
-    'Hello world Hello worldHello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world',
-  releaseDate: new Date('2001/02/02'),
-  author: 'John Smith',
-};

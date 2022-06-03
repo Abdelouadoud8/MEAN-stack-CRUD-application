@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { EditBookComponent } from './books-management/edit-book/edit-book.component';
 import { AddAuthorComponent } from './authors-management/add-author/add-author.component';
 import { EditAuthorComponent } from './authors-management/edit-author/edit-author.component';
+import { AuthorDetailsComponent } from './authors-management/author-details/author-details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { EditAuthorComponent } from './authors-management/edit-author/edit-autho
     EditBookComponent,
     AddAuthorComponent,
     EditAuthorComponent,
+    AuthorDetailsComponent,
   ],
   imports: [
     BrowserModule,

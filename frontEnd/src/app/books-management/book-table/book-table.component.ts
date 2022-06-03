@@ -16,9 +16,11 @@ export class BookTableComponent {
   authorsList: any = [];
   httpClient: any;
   display = false;
+  displayDetails = false;
 
   currentBookId = '';
   currentBookContent = {};
+  selectedBookDetails = {};
 
   newBook = {
     bookTitle: new FormControl('', [Validators.required]),
@@ -62,7 +64,21 @@ export class BookTableComponent {
   }
 
   onPress() {
-    this.display = !this.display;
+    this.display = true;
+  }
+
+  openBookDetails(book: any) {
+    this.onPressBook();
+    this.currentBookContent = book;
+    this.currentId = book._id;
+  }
+
+  onPressBook() {
+    this.displayDetails = true!;
+  }
+
+  onPressCloseBook() {
+    this.display = false;
   }
 
   reloadCurrentPage = () => {

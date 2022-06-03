@@ -1,20 +1,20 @@
 <section>
-  <div class="card book" style="width: 40rem">
+  <div class="card book" style="width: 30rem">
     <img
       class="card-img-top"
       src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip"
       alt="Card image cap"
     />
     <div class="card-body">
-      <h5 class="card-title">{{ bookDetails.title }}</h5>
+      <h3 class="card-title">{{ currentBookContent.title }}</h3>
       <p class="card-text">
-        {{ bookDetails.description }}
+        {{ currentBookContent.description }}
       </p>
-      <p class="card-text">
-        {{ "Released in: " + bookDetails.releaseDate }}
+      <p class="card-text item">
+        {{ "Released in: " + currentBookContent.releaseDate }}
       </p>
-      <p class="card-text">
-        {{ "Writted by in: " + bookDetails.author }}
+      <p class="card-text item">
+        {{ "Written by in: " + currentBookContent.author.name }}
       </p>
     </div>
   </div>

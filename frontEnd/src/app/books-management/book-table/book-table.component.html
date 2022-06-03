@@ -14,7 +14,18 @@
     <tr *ngFor="let book of booksList; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ "📕" }}</td>
-      <td>{{ book.title }}</td>
+      <td>
+        <p
+          (click)="openBookDetails(book)"
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class="bookTitle"
+        >
+          {{ book.title }}
+        </p>
+      </td>
       <td scope="row" class="hellooo">
         <p class="hello">{{ book.description }}</p>
       </td>
@@ -27,6 +38,8 @@
           type="button"
           class="btn btn-primary create-button first"
           (click)="openEditForm(book)"
+          data-bs-toggle="modal"
+          data-bs-target="#editModal"
         >
           <!-- (click)="openEditForm(book._id)" -->
           Edit
@@ -43,9 +56,65 @@
     </tr>
   </tbody>
 </table>
-<app-edit-book
-  [currentBookId]="currentId"
-  [currentBookContent]="currentBookContent"
-  *ngIf="this.display"
+
+<!-- Details modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
 >
-</app-edit-book>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Book details</h5>
+        <button
+          (click)="onPressCloseBook()"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-book-details
+          [currentBookContent]="currentBookContent"
+          *ngIf="this.displayDetails"
+        ></app-book-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit form -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">📕 Edit book</h5>
+        <button
+          (click)="onPressCloseBook()"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-book
+          [currentBookId]="currentId"
+          [currentBookContent]="currentBookContent"
+          *ngIf="this.display"
+        >
+        </app-edit-book>
+      </div>
+    </div>
+  </div>
+</div>

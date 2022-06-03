@@ -1,44 +1,45 @@
 <form class="content" #monForm="ngForm">
-  <h1>✍️ Edit author</h1>
-  <div class="form-group item">
-    <label class="input_title">Author name</label>
-    <input
-      [formControl]="newAuthor.authorName"
-      type="text"
-      name="name"
-      class="form-control"
-      aria-describedby="emailHelp"
-      placeholder="Enter book title"
-    />
-    <label class="error" *ngIf="newAuthor.authorName?.errors"
-      >The name is required, please add the autor name</label
-    >
-  </div>
-  <div class="form-group item">
-    <label class="input_title">Age</label>
-    <input
-      [formControl]="newAuthor.authorAge"
-      class="form-control"
-      type="number"
-      class="form-control"
-      placeholder="Enter age"
-    />
-    <label class="error" *ngIf="newAuthor.authorAge?.errors"
-      >The age is required, please add a valid age</label
-    >
-  </div>
-  <div class="form-group item">
-    <label class="input_title">Biographie</label>
-    <textarea
-      [formControl]="newAuthor.authorDescription"
-      type="text"
-      class="form-control"
-      id="exampleInputPassword1"
-      placeholder="Enter release date"
-    ></textarea>
-    <label class="error" *ngIf="newAuthor.authorDescription?.errors"
-      >The description must contain at least 20 caracters</label
-    >
+  <div class="contentheader">
+    <div class="form-group item">
+      <label class="input_title">Author name</label>
+      <input
+        [formControl]="newAuthor.authorName"
+        type="text"
+        name="name"
+        class="form-control"
+        aria-describedby="emailHelp"
+        placeholder="Enter book title"
+      />
+      <label class="error" *ngIf="newAuthor.authorName?.errors"
+        >The name is required, please add the autor name</label
+      >
+    </div>
+    <div class="form-group item">
+      <label class="input_title">Age</label>
+      <input
+        [formControl]="newAuthor.authorAge"
+        class="form-control"
+        type="number"
+        class="form-control"
+        placeholder="Enter age"
+      />
+      <label class="error" *ngIf="newAuthor.authorAge?.errors"
+        >The age is required, please add a valid age</label
+      >
+    </div>
+    <div class="form-group item">
+      <label class="input_title">Biographie</label>
+      <textarea
+        [formControl]="newAuthor.authorDescription"
+        type="text"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Enter release date"
+      ></textarea>
+      <label class="error" *ngIf="newAuthor.authorDescription?.errors"
+        >The description must contain at least 20 caracters</label
+      >
+    </div>
   </div>
 
   <button
